@@ -18,7 +18,13 @@ public class Mano {
 		this.forma = forma;
 	}
 	
-	private final int tpartida[ ][ ]={{0,2,2,1,1},{1,0,2,2,1},{1,1,0,2,2},{2,1,1,0,2},{2,2,1,1,0}};
+	private final int tpartida[ ][ ]={
+			{0,1,1,2,2},
+			{2,0,1,1,2},
+			{2,2,0,1,1},
+			{1,2,2,0,1},
+			{1,1,2,2,0}
+			};
 
 	/**
 	 * Evaluará el resultado de la partida según las reglas
@@ -33,8 +39,8 @@ public class Mano {
 		switch (tpartida [forma.getValor()][this.otra.forma.getValor()])
 		{
 		case 0: {return Resultado.EMPATA;}
-		case 1: {return Resultado.GANA;}
-		case 2: {return Resultado.PIERDE;}
+		case 1: {return Resultado.PIERDE;}
+		case 2: {return Resultado.GANA;}
 		}
 		
 		return resultado;

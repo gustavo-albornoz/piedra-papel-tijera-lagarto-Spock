@@ -15,5 +15,14 @@ public class PartidaTests {
 				Resultado.GANA, jugadorUno.jugarCon(jugadorDos));
 
 	}
+	
+	@Test
+	public void quepiedraaplastalagarto() {
+		Mano JugadorUno = new Mano(Forma.LAGARTO);
+		Mano JugadorDos = new Mano(Forma.PIEDRA);
+		
+		assertEquals("Lagarto es aplastado por piedra",
+				Resultado.PIERDE, JugadorUno.jugarCon(JugadorDos));	
+	}
 
 }
