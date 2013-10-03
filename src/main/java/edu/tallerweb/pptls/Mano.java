@@ -1,4 +1,4 @@
-package edu.tallerweb.pptls;
+﻿package edu.tallerweb.pptls;
 
 /**
  * Representa una de las Manos involucradas en el juego
@@ -21,7 +21,17 @@ public class Mano {
 	 * @return un Resultado, de acuerdo al estado del juego.
 	 */
 	public Resultado jugarCon(final Mano otra) {
-		throw new RuntimeException("No implementado aún");
+		final int ganaA = -2;
+		final int ganaB = 2;
+		final int ganaC = 1;
+		if (this.forma.getValor() - otra.forma.getValor() < ganaA
+				|| this.forma.getValor() - otra.forma.getValor() == ganaB
+				|| this.forma.getValor() - otra.forma.getValor() == ganaC) {
+			return Resultado.GANA;
+		} else if (this.forma.getValor() - otra.forma.getValor() == 0) {
+			return Resultado.EMPATA;
+		} else {
+			return Resultado.PIERDE;
+		}
 	}
-
 }
