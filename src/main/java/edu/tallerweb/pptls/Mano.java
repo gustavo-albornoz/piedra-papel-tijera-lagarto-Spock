@@ -5,14 +5,20 @@
  */
 public class Mano {
 
+	private Forma forma;
+	private Mano otra;
+	private Resultado resultado;
+
 	/**
 	 * Toda Mano debe crearse con una forma dada, que será
 	 * la que determine su condición en el juego.
 	 * @param forma, la Forma que adopta la Mano.
 	 */
 	public Mano(final Forma forma) {
-		throw new RuntimeException("No implementado aún");
+		this.forma = forma;
 	}
+	
+	private final int tpartida[ ][ ]={{0,2,2,1,1},{1,0,2,2,1},{1,1,0,2,2},{2,1,1,0,2},{2,2,1,1,0}};
 
 	/**
 	 * Evaluará el resultado de la partida según las reglas
@@ -21,17 +27,18 @@ public class Mano {
 	 * @return un Resultado, de acuerdo al estado del juego.
 	 */
 	public Resultado jugarCon(final Mano otra) {
-		final int ganaA = -2;
-		final int ganaB = 2;
-		final int ganaC = 1;
-		if (this.forma.getValor() - otra.forma.getValor() < ganaA
-				|| this.forma.getValor() - otra.forma.getValor() == ganaB
-				|| this.forma.getValor() - otra.forma.getValor() == ganaC) {
-			return Resultado.GANA;
-		} else if (this.forma.getValor() - otra.forma.getValor() == 0) {
-			return Resultado.EMPATA;
-		} else {
-			return Resultado.PIERDE;
+		this.otra = otra;
+		
+		
+		switch (tpartida [forma.getValor()][this.otra.forma.getValor()])
+		{
+		case 0: {return Resultado.EMPATA;}
+		case 1: {return Resultado.GANA;}
+		case 2: {return Resultado.PIERDE;}
 		}
+		
+		return resultado;
+		
 	}
+
 }
